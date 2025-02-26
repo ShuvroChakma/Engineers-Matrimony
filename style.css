@@ -1,0 +1,45 @@
+
+    /* Custom checkbox styling */
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #FF69B4;
+      border-radius: 5px;
+      background-color: white;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    
+    .custom-checkbox:checked {
+      background-color: white;
+      border-color: #FF69B4;;
+    }
+    
+    /* Pink checkmark */
+    .custom-checkbox:checked:after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 1px;
+      width: 6px;
+      height: 12px;
+      border: solid #FF69B4;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      display: block;
+    }
+    
+    /* Focus state */
+    .custom-checkbox:focus {
+      outline: none;
+      border-color: #FF69B4;
+      box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3);
+    }
+    
+    /* Hover state */
+    .custom-checkbox:hover {
+      border-color: #E33183;
+    }
