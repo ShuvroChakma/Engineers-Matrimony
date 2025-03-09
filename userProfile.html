@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: '#490B22',
+                        'custom-pink': '#E33183',
+                        'custom-red': '#490b22',
+                        'custom-lavender': '#D3D3D3'
+
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-custom-lavender">
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="font-bold">
+                    <img src="./assets/logo.png" alt="Logo" class="h-10">
+                </a>
+    
+                <!-- Mobile menu button -->
+                <button id="hamburger" class="md:hidden focus:outline-none mr-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+    
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-900 text-xl">🏠 Profile</a>
+                    <a href="#" class="text-gray-900 text-xl">❤️ My Interests</a>
+                    <a href="#" class="text-gray-900 text-xl">⭐ Shortlist</a>
+                    <a href="#" class="text-gray-900 text-xl">👥 Followed Users</a>
+                    <a href="#" class="text-gray-900 text-xl">✉️ Messaging</a>
+                    <a href="#" class="text-gray-900 text-xl">🚫 Ignored List</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu (Initially Hidden) -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 w-full bg-white shadow-md z-[100] transition-transform transform duration-500 ease-in-out">
+        <div class="flex flex-col space-y-4 py-4 px-6">
+            <a href="#" class="text-gray-900 text-xl">🏠 Profile</a>
+            <a href="#" class="text-gray-900 text-xl">❤️ My Interests</a>
+            <a href="#" class="text-gray-900 text-xl">⭐ Shortlist</a>
+            <a href="#" class="text-gray-900 text-xl">👥 Followed Users</a>
+            <a href="#" class="text-gray-900 text-xl">✉️ Messaging</a>
+            <a href="#" class="text-gray-900 text-xl">🚫 Ignored List</a>
+        </div>
+    </div>
+    
+    <!-- JavaScript to toggle mobile menu -->
+    <script>
+        // Select elements
+    const hamburgerButton = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Toggle mobile menu
+    hamburgerButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !hamburgerButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+    </script>
+  
+  
+  
+
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row mt-20">
+      <!-- Sidebar -->
+      <div
+        class="w-full md:w-1/4 bg-custom-red text-white p-6 rounded-lg shadow-lg"
+      >
+        <div class="text-center">
+            <div class="w-30 h-30 mx-auto rounded-md overflow-hidden flex items-center justify-center">
+                <img class="w-full h-[30%] object-cover" src="./assets/userProfile.jpg" alt="Profile Image">
+              </div>
+              
+              
+          <h2 class="mt-4 mb-5 text-xl font-bold uppercase">Aslam Mahmud Siam</h2>
+          <hr class="mb-2">
+          <p class="text-gray-100">0 FOLLOWERS</p>
+          <hr class="mt-2">
+        </div>
+        
+        <div class="mt-6 p-4">
+          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
+          <p class="mt-2">Free Package</p>
+          <p>৳ 0.00</p>
+          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
+          <p class="mt-2">None</p>
+          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
+          <p class="mt-2">2</p>
+          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
+          <p class="mt-2">2</p>
+          <h3 class="text-lg font-semibold mt-5">PACKAGE EXPIRES AT</h3>
+          <p class="mt-2">2025-03-19</p>
+        </div>
+        <div class="mt-6 space-y-3">
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            Gallery
+          </button>
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            Happy Story
+          </button>
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            My Package
+          </button>
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            Payment Information
+          </button>
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            Picture Privacy
+          </button>
+          <button class="w-full bg-white text-custom-pink py-2 rounded">
+            Change Password
+          </button>
+          <button class="w-full bg-custom-pink text-white py-2 rounded">
+            Close Account
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Profile Section -->
+      <div
+        class="w-full md:w-3/4 bg-white p-6 rounded-lg shadow-lg ml-0 md:ml-6"
+      >
+        <div class="flex  justify-between items-center">
+          <h2 class="text-2xl font-bold text-gray-800">Profile Information</h2>
+          <button class="bg-custom-pink text-white px-3 py-1 rounded">
+            ✎ Edit
+          </button>
+        </div>
+        <p class="text-custom-pink">Member ID - 9D399CFB10165</p>
+
+        <!-- Introduction -->
+        <div class="mt-4  border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Introduction</h3>
+            <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+          </div>
+          <div class="p-4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique voluptates voluptas distinctio. Rerum minima, eius sit itaque quo accusamus quia error culpa nemo, in esse voluptatibus aliquid nihil dicta eligendi.</p>
+          </div>
+        </div>
+
+        <!-- Basic Information -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Basic Information</h3>
+            <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">FIRST NAME</p>
+              <p>siam</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">LAST NAME</p>
+              <p>ahmed</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">GENDER</p>
+              <p>Male</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">EMAIL</p>
+              <p>shubrachakma101@gmail.com</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">AGE</p>
+              <p>26</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MARITAL STATUS</p>
+              <p>Single</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">NUMBER OF CHILDREN</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">AREA</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">ON BEHALF</p>
+              <p>Self</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MOBILE</p>
+              <p>01557808097</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">DATE OF BIRTH</p>
+              <p>10/07/1999</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Present Address -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Present Address</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">STATE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CITY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">POSTAL CODE</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education And Career -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Education And Career</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">HIGHEST EDUCATION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">OCCUPATION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">ANNUAL INCOME</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Physical Attributes -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Physical Attributes</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">HEIGHT</p>
+              <p>0.00 Feet</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">WEIGHT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">EYE COLOR</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">HAIR COLOR</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">COMPLEXION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BLOOD GROUP</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BODY TYPE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BODY ART</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">ANY DISABILITY</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Language</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">MOTHER TONGUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">LANGUAGE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SPEAK</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">READ</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hobbies And Interests -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Hobbies And Interests</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">HOBBY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">INTEREST</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MUSIC</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BOOKS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MOVIE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">TV SHOW</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SPORTS SHOW</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FITNESS ACTIVITY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CUISINE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">DRESS STYLE</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Attitude And Behavior -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Personal Attitude And Behavior</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">AFFECTION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">HUMOR</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">POLITICAL VIEW</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">RELIGIOUS SERVICE</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Residency Information -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Residency Information</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">BIRTH COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">RESIDENCY COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CITIZENSHIP COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">GROW UP COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">IMMIGRATION STATUS</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spiritual And Social Background -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Spiritual And Social Background</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">RELIGION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CASTE / SECT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SUB-CASTE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">ETHNICITY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PERSONAL VALUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FAMILY VALUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">COMMUNITY VALUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FAMILY STATUS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MANGLIK</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Life Style -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Life Style</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">DIET</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">DRINK</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SMOKE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">LIVING WITH</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Astronomic Information -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Astronomic Information</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">SUN SIGN</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MOON SIGN</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CITY OF BIRTH</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">TIME OF BIRTH</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Permanent Address -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Permanent Address</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">STATE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CITY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">POSTAL CODE</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Family Information -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Family Information</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">FATHER</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MOTHER</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BROTHER / SISTER</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Personal Details -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Additional Personal Details</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">HOME DISTRICT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FAMILY RESIDENCE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FATHER'S OCCUPATION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SPECIAL CIRCUMSTANCES</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner Expectation -->
+        <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+          <div
+            class="flex justify-between items-center  bg-custom-red p-3 border-b"
+          >
+            <h3 class="font-semibold text-white">Partner Expectation</h3>
+            <div>
+              <button class="text-white bg-custom-pink px-2 rounded mr-2">
+                Show
+              </button>
+              <button class="text-white bg-custom-pink px-2 rounded">✎</button>
+            </div>
+          </div>
+          <div class="p-4 grid grid-cols-2 gap-4">
+            <div>
+              <p class="text-gray-600 text-sm">GENERAL REQUIREMENT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">AGE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">HEIGHT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">WEIGHT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MARITAL STATUS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">WITH CHILDREN ACCEPTABLES</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">COUNTRY OF RESIDENCE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">RELIGION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">CASTE / SECT</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SUB CASTE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">EDUCATION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PROFESSION</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">DRINKING HABITS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">SMOKING HABITS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">DIET</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">BODY TYPE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PERSONAL VALUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MANGLIK</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">ANY DISABILITY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">MOTHER TONGUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">FAMILY VALUE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PREFERED COUNTRY</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PREFERED STATE</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">PREFERED STATUS</p>
+              <p>-</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm">COMPLEXION</p>
+              <p>-</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
