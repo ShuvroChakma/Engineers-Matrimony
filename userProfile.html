@@ -89,59 +89,62 @@
   
 
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row mt-20">
-      <!-- Sidebar -->
-      <div
-        class="w-full md:w-1/4 bg-custom-red text-white p-6 rounded-lg shadow-lg"
-      >
-        <div class="text-center">
-            <div class="w-30 h-30 mx-auto rounded-md overflow-hidden flex items-center justify-center">
-                <img class="w-full h-[30%] object-cover" src="./assets/userProfile.jpg" alt="Profile Image">
-              </div>
-              
-              
-          <h2 class="mt-4 mb-5 text-xl font-bold uppercase">Aslam Mahmud Siam</h2>
-          <hr class="mb-2">
-          <p class="text-gray-100">0 FOLLOWERS</p>
-          <hr class="mt-2">
-        </div>
-        
-        <div class="mt-6 p-4">
-          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
-          <p class="mt-2">Free Package</p>
-          <p>৳ 0.00</p>
-          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
-          <p class="mt-2">None</p>
-          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
-          <p class="mt-2">2</p>
-          <h3 class="text-lg font-semibold mt-5">Package Information</h3>
-          <p class="mt-2">2</p>
-          <h3 class="text-lg font-semibold mt-5">PACKAGE EXPIRES AT</h3>
-          <p class="mt-2">2025-03-19</p>
-        </div>
-        <div class="mt-6 space-y-3">
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            Gallery
-          </button>
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            Happy Story
-          </button>
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            My Package
-          </button>
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            Payment Information
-          </button>
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            Picture Privacy
-          </button>
-          <button class="w-full bg-white text-custom-pink py-2 rounded">
-            Change Password
-          </button>
-          <button class="w-full bg-custom-pink text-white py-2 rounded">
-            Close Account
-          </button>
-        </div>
-      </div>
+<!-- Sidebar -->
+<div class="w-full md:w-1/4 bg-custom-red text-white p-6 rounded-lg shadow-lg">
+  <div class="text-center">
+    <!-- Profile Image -->
+    <div class="w-32 h-32 mx-auto border border-gray-300 rounded-full overflow-hidden flex items-center justify-center">
+      <img class="w-full h-full object-cover" src="./assets/UserProfile.png" alt="Profile Image">
+    </div>
+
+    <!-- User Name & Followers -->
+    <h2 class="mt-4 text-xl font-bold uppercase">Aslam Mahmud Siam</h2>
+    <p class="text-gray-100 text-sm mt-1">0 Followers</p>
+    <hr class="my-3 border-gray-300">
+  </div>
+
+  <!-- Package Information -->
+  <div class="mt-4 p-4 bg-white text-black rounded-lg shadow">
+    <h3 class="text-lg font-semibold text-custom-red">Package Information</h3>
+    <p class="mt-2 flex items-center"><span class="mr-2">🎁</span> Free Package</p>
+    <p class="text-sm text-gray-700">৳ 0.00</p>
+
+    <h3 class="text-lg font-semibold text-custom-red mt-4">Premium Package</h3>
+    <p class="text-sm text-gray-700 mt-1">None</p>
+
+    <h3 class="text-lg font-semibold text-custom-red mt-4">Package Available</h3>
+    <p class="text-sm text-gray-700 mt-1">2</p>
+
+    <h3 class="text-lg font-semibold text-custom-red mt-4">PACKAGE EXPIRES AT</h3>
+    <p class="text-sm font-medium mt-1">2025-03-19</p>
+  </div>
+
+  <!-- Sidebar Buttons -->
+    <div class="mt-6 space-y-2">
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      📷 Gallery
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      ❤️ Happy Story
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      🎟️ My Package
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      💳 Payment Information
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      🔒 Picture Privacy
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      🔑 Change Password
+    </button>
+    <button class="w-full bg-white text-custom-pink py-2 rounded-md shadow hover:bg-custom-pink hover:text-white transition">
+      ❌ Close Account
+    </button>
+    </div>
+  </div>
+
 
       <!-- Main Profile Section -->
       <div
@@ -149,7 +152,7 @@
       >
         <div class="flex  justify-between items-center">
           <h2 class="text-2xl font-bold text-gray-800">Profile Information</h2>
-          <button class="bg-custom-pink text-white px-3 py-1 rounded">
+          <button class="bg-custom-pink text-white px-4 py-2 rounded">
             ✎ Edit
           </button>
         </div>
